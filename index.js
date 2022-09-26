@@ -1,80 +1,68 @@
-// TODO: Include packages needed for this application
+// Imports
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
+// Modules
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown.js');
 
-// TODO: Create an array of questions for user input
-const questions = [
+// Team
+const team = [];
+
+// Manager questions
+const managerQuestions = [
   {
     type: 'input',
-    name: 'title',
-    message: 'What is your project title? ',
+    name: 'name',
+    message: "Please enter the team's Manager:",
   },
   {
     type: 'input',
-    name: 'description',
-    message: 'Please give a brief description of the project: ',
-  },
-  {
-    type: 'input',
-    name: 'install',
-    message: 'Please provide installation instructions: ',
-  },
-  {
-    type: 'input',
-    name: 'usage',
-    message: 'Please provide usage information: ',
-  },
-  {
-    type: 'input',
-    name: 'contributors',
-    message: 'Please list any contributors to the project: ',
-  },
-  {
-    type: 'input',
-    name: 'test',
-    message: 'Please provide test instructions: ',
-  },
-  {
-    type: 'list',
-    name: 'license',
-    message: 'Please choose a license: ',
-    choices: [
-      'MIT',
-      'ISC',
-      'Mozilla',
-      'Apache',
-      'Boost'
-    ]
-  },
-  {
-    type: 'input',
-    name: 'github',
-    message: 'Please provide your Github username: ',
+    name: 'id',
+    message: "Please enter the Manager's id number:",
   },
   {
     type: 'input',
     name: 'email',
-    message: 'Please provide your email address: ',
-  }
-
+    message: "Please enter the Manager's email address:",
+  },
+  {
+    type: 'input',
+    name: 'officeNumber',
+    message: "Please enter the Manager's office number:",
+  },
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, (err) =>
-      err ? console.log(err) : console.log('Successfully created README.md')
-  );
+// Create Team
+const createTeam = () => {
+  return inquirer.prompt([...managerQuestions])
+  .then(input => {
+    const {name, id, email, officeNumber} = input;
+    const manager = new Manager(name, id, email, officeNumber);
+    // Add to team
+    team.push(manager);
+    console.log(manager);
+  })
 }
 
-// TODO: Create a function to initialize app
-function init() {
-  inquirer
-    .prompt([...questions])
-    .then((answers) => {
-      writeToFile('README.md',generateMarkdown({...answers}));
-    })
-}
+createTeam();
 
-// Function call to initialize app
-init();
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {
+//   fs.writeFile(fileName, data, (err) =>
+//       err ? console.log(err) : console.log('Successfully created README.md')
+//   );
+// }
+
+// // TODO: Create a function to initialize app
+// function init() {
+//   inquirer
+//     .prompt([...questions])
+//     .then((answers) => {
+//       writeToFile('README.md',generateMarkdown({...answers}));
+//     })
+// }
+
+// // Function call to initialize app
+// init();
