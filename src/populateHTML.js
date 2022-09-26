@@ -1,7 +1,7 @@
 // Cards
 const managerTemplate = function (manager) {
     return `
-    <div class="card" style="width: 18rem;">
+    <div class="card m-3" style="width: 18rem;">
       <div class="card-header text-white bg-primary mb-3">
         <h3>${manager.name}</h3>
         <h4>Manager</h4>
@@ -19,10 +19,10 @@ const managerTemplate = function (manager) {
 
 const engineerTemplate = function (engineer) {
   return `
-  <div class="card" style="width: 18rem;">
+  <div class="card m-3" style="width: 18rem;">
     <div class="card-header text-white bg-primary mb-3">
       <h3>${engineer.name}</h3>
-      <h4>Manager</h4>
+      <h4>Engineer</h4>
     </div>
     <div class="card-body">
       <ul class="list-group list-group-flush">
@@ -37,10 +37,10 @@ const engineerTemplate = function (engineer) {
 
 const internTemplate = function (intern) {
   return `
-  <div class="card" style="width: 18rem;">
+  <div class="card m-3" style="width: 18rem;">
     <div class="card-header text-white bg-primary mb-3">
       <h3>${intern.name}</h3>
-      <h4>Manager</h4>
+      <h4>Intern</h4>
     </div>
     <div class="card-body">
       <ul class="list-group list-group-flush">
@@ -63,7 +63,7 @@ const htmlTemplate = function (teamCards) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
+    <link rel="stylesheet" href="./style.css">
 
     <title>My Team</title>
   </head>
@@ -110,7 +110,7 @@ populateHTML = (team) => {
 
   const teamCards = teamArray.join('');
   const htmlPage = htmlTemplate(teamCards);
-  console.log(teamCards)
+  // console.log(teamCards)
   return htmlPage;
 }
 

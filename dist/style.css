@@ -1,0 +1,12 @@
+.jumbotron {
+    background-color: dodgerblue;
+    color: ghostwhite;
+}
+
+.card {
+    border-radius: 25px;
+}
+
+.card-header:first-child {
+    border-radius: 25px 25px 0px 0px;
+}

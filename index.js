@@ -104,7 +104,6 @@ const checkAddEmployee = () => {
     if (checkAddEmployee) {
       return addTeamMembers(team);
     } else {
-      console.log(team)
       return team;
     }
   })
@@ -129,7 +128,6 @@ const addTeamMembers = () => {
     if (checkAddEmployee) {
       return addTeamMembers(team);
     } else {
-      console.log(team)
       return team;
     }
   })
@@ -147,6 +145,6 @@ createTeam()
   .then(team => {
     return populateHTML(team);
   })
-  // .then(htmlPage => {
-  //   return writeToFile(htmlPage);
-  // })
+  .then(htmlPage => {
+    return writeToFile(htmlPage);
+  })
