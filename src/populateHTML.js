@@ -28,7 +28,7 @@ const engineerTemplate = function (engineer) {
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${engineer.id}</li>
         <li class="list-group-item">Email: <a href = "mailto:${engineer.email}">${engineer.email}</a></li>
-        <li class="list-group-item">GitHub: <a href = "https://github.com/${engineer.github}">${engineer.github}</a></li>
+        <li class="list-group-item">GitHub: <a href = "https://github.com/${engineer.gitHub}">${engineer.gitHub}</a></li>
       </ul>
     </div>
   </div>
@@ -92,15 +92,17 @@ const htmlTemplate = function (teamCards) {
 populateHTML = (team) => {
   
   const teamArray = [];
-
-  for (member in team) {
-    if (member.getRole() === 'Manager') {
+  
+  for (let i=0;i<team.length;i++) {
+    const member = team[i];
+    const role = member.getRole();
+    if (role === 'Manager') {
       const manager = managerTemplate(member);
       teamArray.push(manager);
-    } else if (member.getRole() === 'Engineer') {
+    } else if (role === 'Engineer') {
       const engineer = engineerTemplate(member);
       teamArray.push(engineer);
-    } else if (member.getRole() === 'Intern') {
+    } else if (role === 'Intern') {
       const intern = internTemplate(member);
       teamArray.push(intern);
     }
@@ -108,6 +110,7 @@ populateHTML = (team) => {
 
   const teamCards = teamArray.join('');
   const htmlPage = htmlTemplate(teamCards);
+  console.log(teamCards)
   return htmlPage;
 }
 

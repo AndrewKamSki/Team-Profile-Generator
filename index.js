@@ -62,7 +62,7 @@ const employeeQuestions = [
   },
   {
     type: 'input',
-    name: 'github',
+    name: 'gitHub',
     message: "Please enter the employee's github username:",
     when: (input) => input.role === 'Engineer',
   },
@@ -87,7 +87,6 @@ const createTeam = () => {
     const manager = new Manager(name, id, email, officeNumber);
     // Add to team
     team.push(manager);
-    console.log(manager);
   })
 }
 
@@ -105,6 +104,7 @@ const checkAddEmployee = () => {
     if (checkAddEmployee) {
       return addTeamMembers(team);
     } else {
+      console.log(team)
       return team;
     }
   })
@@ -114,11 +114,11 @@ const checkAddEmployee = () => {
 const addTeamMembers = () => {
   return inquirer.prompt ([...employeeQuestions])
   .then(input => {
-    let {name, id, email, role, github, school, checkAddEmployee} = input;
+    let {name, id, email, role, gitHub, school, checkAddEmployee} = input;
     let employee;
 
     if (role === 'Engineer') {
-      employee = new Engineer(name, id, email, github);
+      employee = new Engineer(name, id, email, gitHub);
     }
     if (role === 'Intern') {
       employee = new Intern(name, id, email, school);
@@ -129,6 +129,7 @@ const addTeamMembers = () => {
     if (checkAddEmployee) {
       return addTeamMembers(team);
     } else {
+      console.log(team)
       return team;
     }
   })
@@ -146,6 +147,6 @@ createTeam()
   .then(team => {
     return populateHTML(team);
   })
-  .then(htmlPage => {
-    return writeToFile(htmlPage);
-  })
+  // .then(htmlPage => {
+  //   return writeToFile(htmlPage);
+  // })
