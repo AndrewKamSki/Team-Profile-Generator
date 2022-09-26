@@ -21,7 +21,7 @@
   To install this project, download the files from my repository at https://github.com/AndrewKamSki/Team-Profile-Generator. From there you can load in the index.js file in your favorite IDE. Run an NPM install in the console to load in the correct packages, then run a node index.js to start the application and begin entering data!
 
   ## Usage
-  A walkthrough using the application can be seen here: https://drive.google.com/drive/u/0/folders/1pNeKVInYZjYJB4tTRLnSyskN3UFg7IFI
+  A walkthrough using the application can be seen here: https://drive.google.com/file/d/1XcRA6oQLzdPR4Of6bfQOEd7rYBQQSevw/view?usp=sharing
 
   Once you run the 'node index.js' the system will prompt you for information about your team. Once you are finished keying in information (saying 'no' to adding more teammates), the application will display an index.html file in the dist/ folder.
 
