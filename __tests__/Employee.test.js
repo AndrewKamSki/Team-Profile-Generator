@@ -1,6 +1,6 @@
 const Employee = require('../lib/Employee');
 
-fdescribe("Employee", () => {
+describe("Employee", () => {
     describe("Initialization", () => {
         it("create an object with a name, id, and email if provided vaild arguments",() => {
             const employee = new Employee('Andy', 20, 'andy.kaminski42@gmail.com');
