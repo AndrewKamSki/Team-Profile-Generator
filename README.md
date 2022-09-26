@@ -38,7 +38,7 @@
 
   ## Tests
 
-  Jest was used to evaluate unit tests in this project. The tests evaluated that each class was behaving and storing information properly. These can be viewed in the lib/ folder.
+  Jest was used to evaluate unit tests in this project. The tests evaluated that each class was behaving and storing information properly. These can be viewed in the __tests__ folder.
 
   To evaluate and run the tests, simply run an npm test from the command line
   
